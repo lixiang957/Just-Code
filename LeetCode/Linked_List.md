@@ -50,7 +50,7 @@ Output: 5->4->3->2->1->NULL
 **分析：** 反转链表是链表操作里比较经典的题型，操作为用一个单链表储存新的反转后的链表，原链表从前到后把每个节点和链表分开并且添加到新的单链表后边，再将原链表的head指向head.next 完成head的后移。代码如下：
 
 ### 迭代
-```
+``` Python
 class Solution:
   def reverseList(self, head):
     """
@@ -64,7 +64,7 @@ class Solution:
 ```
 
 ### 递归
-```
+``` Python
 class Solution:
   # 返回ListNode
   def ReverseList(self, pHead):
