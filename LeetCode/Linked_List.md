@@ -53,10 +53,7 @@ Output: 5->4->3->2->1->NULL
 ``` Python
 class Solution:
   def reverseList(self, head):
-    """
-    :type head: ListNode
-    :rtype: ListNode
-    """
+
     cur, pre = head, None
     while cur:
       cur.next, pre, cur = pre, cur, cur.next
@@ -66,9 +63,7 @@ class Solution:
 ### 递归
 ``` Python
 class Solution:
-  # 返回ListNode
   def ReverseList(self, pHead):
-    # write code here
     if not pHead or not pHead.next:
       return pHead
     else:
