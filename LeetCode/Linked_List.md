@@ -49,49 +49,33 @@ Output: 5->4->3->2->1->NULL
 ### Python Solution
 **分析：** 反转链表是链表操作里比较经典的题型，操作为用一个单链表储存新的反转后的链表，原链表从前到后把每个节点和链表分开并且添加到新的单链表后边，再将原链表的head指向head.next 完成head的后移。代码如下：
 
-```python
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
+### 迭代
+```
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
-        pre = None
-        while head:
-            tmp = head.next
-            head.next = pre
-            pre = head
-            head = tmp
-        return pre
+  def reverseList(self, head):
+    """
+    :type head: ListNode
+    :rtype: ListNode
+    """
+    cur, pre = head, None
+    while cur:
+      cur.next, pre, cur = pre, cur, cur.next
+    return pre
 ```
 
-我们用的是Python，因为 Life is short, I use python.
-**所以**!!!代码还可以简化成：
-
-```python
-class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
-        pre = None
-        while head:
-            pre, pre.next, head = head, pre, head.next
-        return pre
+### 递归
 ```
-
-```python
 class Solution:
-    def reverseList(self, head: ListNode) -> ListNode:
-        if not head or not head.next:
-            return head
-        dummy = ListNode(0)
-        dummy.next = head
-        while head.next:
-            cur = head.next
-            head.next = cur.next
-            cur.next = dummy.next
-            dummy.next = cur
-        return dummy.next
-
+  # 返回ListNode
+  def ReverseList(self, pHead):
+    # write code here
+    if not pHead or not pHead.next:
+      return pHead
+    else:
+      newHead = self.ReverseList(pHead.next)
+      pHead.next.next=pHead
+      pHead.next=None
+      return newHead
 ```
 
 [返回目录](#00)
